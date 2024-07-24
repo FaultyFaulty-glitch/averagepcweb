@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+
+    <!-- Link to the PNG favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon/ape.png">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        #window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 750px; /* Adjusted width to reflect increased size */
+            height: 500px; /* Adjusted height to reflect increased size */
+            background: url('assets/images/window.png') no-repeat center center;
+            background-size: contain; /* Scale image to fit within the div */
+            display: flex;
+            flex-direction: column;
+            cursor: move;
+            overflow: hidden; /* Prevent content overflow */
+        }
+        #titlebar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent title bar */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Segoe UI;
+        }
+        #content {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100% - 20px); /* Adjust iframe height to leave space for the title bar */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="window">
+        <div id="titlebar">Title Bar</div>
+        <div id="content">
+            <iframe src="https://example.com"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Make the window movable
+        dragElement(document.getElementById("window"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                // if present, the header is where you move the DIV from:
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                // otherwise, move the DIV from anywhere inside the DIV:
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                // stop moving when mouse button is released:
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+</html>

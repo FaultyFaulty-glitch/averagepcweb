@@ -23,24 +23,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 750px; /* Adjusted width to reflect increased size */
-            height: 500px; /* Adjusted height to reflect increased size */
+            width: 1250px; /* Adjusted width to reflect increased size */
+            height: 1000px; /* Adjusted height to reflect increased size */
             background: url('assets/images/window.png') no-repeat center center;
             background-size: contain; /* Scale image to fit within the div */
             display: flex;
             flex-direction: column;
             cursor: move;
             overflow: hidden; /* Prevent content overflow */
-        }
-        #titlebar {
-            height: 20px;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent title bar */
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: Segoe UI;
         }
         #content {
             flex: 1;
@@ -50,16 +40,15 @@
         }
         iframe {
             width: 100%;
-            height: calc(100% - 20px); /* Adjust iframe height to leave space for the title bar */
+            height: calc(100% - 30px); /* Adjust iframe height to leave space for the title bar */
             border: none;
         }
     </style>
 </head>
 <body>
     <div id="window">
-        <div id="titlebar">Title Bar</div>
         <div id="content">
-            <iframe src="https://example.com"></iframe>
+            <iframe src="https://gamaverse.com/c/f/g/friday-night-funkin-1715895120/"></iframe>
         </div>
     </div>
 

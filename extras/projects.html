@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AveragePC's Website - projects</title>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://averagepcweb.is-a.dev">
+    <meta property="og:title" content="Average PC's Website!">
+    <meta property="og:description" content="Downloads, tips, and more!">
+    <meta property="og:image" content="https://averagepcweb.is-a.dev/assets/images/banner.png">
+    <meta property="og:locale" content="en_GB">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        .topbar {
+            display: flex;
+            background-color: #00CC6A;
+            height: 6vh;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 5px;
+        }
+
+        #gonebtn {
+            width: 35px;
+            height: 25px;
+        }
+
+        #gonebtn:hover {
+            cursor: pointer;
+        }
+
+        .topbar p {
+            font-size: 14px;
+        }
+
+        .maincontent {
+            color: white;
+            padding-left: 15px;
+            padding-top: 15px;
+            background-image: url(https://4kwallpapers.com/images/walls/thumbs_3t/8710.jpg);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .maincontent p {
+            max-width: 50%
+        }
+
+        .btns {
+            padding: 5px;
+            background-color:#00CC6A;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .btns1 {
+            padding: 5px;
+            background-color:#00CC6A;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .btns:hover {
+            color: white;
+            cursor: pointer;
+            background-color:#00934c;
+            transition: 0.1s linear
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <p>The Average PC Web</p>
+        <a href="/index.html" class="btns">Home</a>
+        <a href="/extras/downloads.html" class="btns">Downloads</a>
+        <a href="/extras/simpleguide.html" class="btns">SimpleGuide™</a>
+        <a href="/extras/projects.html" class="btns">Projects</a>
+        <a href="/extras/credits.html" class="btns">Credits</a>
+        <a href="/extras/aboutme.html" class="btns">About Me</a>
+        <img src="/assets/images/image.png" alt="Close Button" id="gonebtn">
+    </div>
+    <div class="maincontent">
+        <h1>my projects!</h1>
+        <p>here are some of my projects!</p>
+        <h3>====current projects====</h3>
+        <p>windows 10 sp1 - still not finished</p>
+        <p>[collaboration] windows 7 sp2 - also still not finished</p>
+        <br>
+        <h3>====old and disbanded projects====</h3>
+        <p>Fluentify10 - discontinued after group disband</p>
+        <p>Fluentify11 - also discontinued after group disband</p>
+        <p>AveragePE - discontinued after issues with storage</p>
+        <p>Windows 12 - also discontinued after issues with storage</p>
+        <br>
+        <br>
+        <br>
+
+        <p>The Average PC Web™. Some Rights Reserved. <a href="/extras/rights.html">Learn More</a></p>
+        </div>
+    </div>
+    <script>
+        const gonebtn = document.getElementById("gonebtn")
+
+        gonebtn.addEventListener("click", function () {
+            tryClose()
+        })
+
+        function tryClose() {
+          window.open('', '_self');
+          window.close();
+          // if still open after short delay, show message
+          setTimeout(() => {
+            if (!window.closed) {
+               window.location.replace('about:blank');
+            }
+     }, 100);
+    }
+    </script>
+</body>
+</html>
